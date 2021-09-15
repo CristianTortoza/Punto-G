@@ -1,0 +1,177 @@
+html * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header{
+	display: flex;
+	width: 100%;
+	height: 15vh;
+	justify-content: space-between;
+	background-color: rgb(93, 8, 107);
+	padding: 10px;
+}
+div.logoSexShop{
+	display: flex;
+	align-items: center;
+	margin-top: 15px;
+}
+div.logoSexShop img{
+	margin-right: 15px;
+	margin-bottom: 5px;
+}
+div.contenedorLogoTitulo{
+	display: flex;
+	flex-direction: column;
+}
+header nav{
+	display: flex;
+	justify-content: center;
+	text-align: center;
+	align-items: center;
+	padding: 15px;
+	height: 100%;
+}
+header nav a{
+	color: white;
+	text-decoration: none;
+	margin: 5px;
+}
+header nav a:hover{
+	color: rgb(158, 94, 208);
+}
+main{
+	min-height: 75vh;
+}
+div.contenedorPrincipalMain{
+	height: 20vh;
+	background-color: rgb(158, 94, 208);
+	padding: 15px;
+	display: flex;
+	width: 100%;
+	justify-content: space-between;
+}
+div.tituloLinkMain h1{
+	color: white;
+	margin-bottom: 15px;
+}
+div.tituloLinkMain a, div.tarjetaDeProductos button, div.formularioCrearCuentaBoton button{
+	text-decoration: none;
+	color: white;
+	background-color: rgb(93, 8, 107);
+	padding: 8px;
+}
+div.tarjetaDeProductos button{
+	border: none;
+}
+div.contenedorImagenesMain{
+	display: flex;
+}
+div.contenedorImagenesMain img{
+	margin-left: 5px;
+}
+div.contenedorProductos{
+	height: 70vh;
+	background-color: rgb(93, 8, 107);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+div.contenedorTarjetasDeProductos{
+	background-color:rgb(158, 94, 208);
+	height: 80%;
+	width: 90%;
+	display: flex;
+	justify-content: center;
+	border-top-left-radius: 15px;
+	border-top-right-radius: 15px;
+}
+div.tarjetaDeProductos{
+	width: 25%;
+	height: 90%;
+	background-color: violet;
+	display: flex;
+	justify-content: space-around;
+	flex-direction: column;
+	align-items: center;
+	margin: 6px;
+}
+div.contenedorTarjetasDeProductos img{
+	height: 30vh;
+}
+div.contenedorInformativo{
+	margin-top: 50px;
+	margin-bottom: 50px;
+	display: flex;
+	width: 100%;
+	justify-content: center;
+	align-items: center;
+	background-color: rgb(93, 8, 107);
+}
+div.imagenAcc, div.informacionMain{
+	width: 40%;
+} 
+div.imagenAcc img{
+	height: 300px;
+}
+div.informacionMain{
+	display: flex;
+	justify-content: space-around;
+	flex-direction: column;
+	align-items: flex-start;
+	padding: 10px;
+	height: 100%;
+}
+div.informacionMain h2,div.informacionMain p{
+	margin-bottom: 15px;
+	color: white;	
+}
+div.informacionMain p{
+	font-size: 18px;
+}
+div.informacionMain button{
+	padding: 12px;
+}
+img.carritoImg{
+	height: 30px;
+	margin-left: 5px;
+}
+footer{
+	height: 10vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: violet;
+}
+form{
+	width: 100%;
+	height: 76vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	background-color: violet;
+	border-bottom: 5px solid  rgb(93, 8, 107);
+}
+form input{
+	margin-bottom: 15px;
+	width: 30%;
+	height: 10%;
+	outline: none;
+	border: none;
+	border-radius: 5px;
+	font-size: 30px;
+}
+div.formularioCrearCuentaBoton{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+div.formularioCrearCuentaBoton button{
+	padding: 10px;
+	border-radius: 5px;
+	border: none;
+	
+}
