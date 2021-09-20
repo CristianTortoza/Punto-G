@@ -140,8 +140,8 @@ const pageControllers = {
 			req.session.nombre = usuario.nombre
 			res.redirect("/")
 		}catch(e){
-			res.render('crearCuenta', {
-				title: 'Crear Cuenta',
+			res.render('ingresar', {
+				title: 'ingresar',
 				error: "contraseña o mail incorrecto",
 				loggedIn : false,
 			})
