@@ -21,4 +21,4 @@ app.use(session({
 
 app.use("/", router)
 app.set('view engine', 'ejs')
-app.listen(4000, () => console.log("server on"))
+app.listen(process.env.PORT, process.env.HOST || '0.0.0.0', () => console.log("Server On"))

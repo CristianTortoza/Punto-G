@@ -98,6 +98,7 @@ const pageControllers = {
 	},
 
 	ingresarCuenta: async (req,res) => {
+		
 		const {email, contrasena} = req.body
 		let usuario = await Usuario.findOne({email})
 		let correctPass = bcryptjs.compareSync(contrasena, usuario.contrasena)
