@@ -1,5 +1,5 @@
-const urlControllers = {
-    checkURL: (req, res, next) => {
+const rutasControllers = {
+    controladorDeRutas: (req, res, next) => {
         if(req.url.startsWith('/productos/') || req.url.startsWith('/eliminar-producto/') || req.url.startsWith('/editar-producto/') ){
             next()
         }else{
@@ -8,6 +8,6 @@ const urlControllers = {
         }
     }
 }
-module.exports = urlControllers
+module.exports = rutasControllers
 
 

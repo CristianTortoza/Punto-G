@@ -4,7 +4,9 @@ html * {
     box-sizing: border-box;
 	font-family: 'Montserrat', sans-serif;
 }
-
+button{
+	cursor: pointer;
+}
 header{
 	display: flex;
 	width: 100%;
@@ -17,6 +19,9 @@ div.logoSexShop{
 	display: flex;
 	align-items: center;
 	margin-top: 15px;
+}
+div.logoSexShop h2,div.contenedorLogoTitulo h4{
+	color: white;
 }
 div.logoSexShop img{
 	margin-right: 15px;
@@ -70,7 +75,9 @@ div.contenedorImagenesMain{
 	display: flex;
 }
 div.contenedorImagenesMain img{
+	margin-top: 14px;
 	margin-left: 5px;
+	height: 100px;
 }
 div.contenedorProductos{
 	min-height: 70vh;
@@ -177,14 +184,19 @@ div.formularioCrearCuentaBoton button{
 	padding: 10px;
 	border-radius: 5px;
 	border: none;
+	cursor: pointer;
 	
 }
 div.contenedorDeImagenesParaEdit{
 	display: flex;
 	width: 100%;
-	align-items: flex-end;
+	align-items: center;
+	justify-content: center;
 	position:relative;
-
+	
+}
+div.contenedorDeImagenesParaEdit h2{
+	margin: 2.8px;
 }
 
 div.contenedorDeImagenesParaEdit img{
@@ -200,4 +212,20 @@ div.imagenProducto{
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;
+}
+h3.errorMensaje{
+	color: white;
+	font-size: bold;
+	font-size: 800;
+	margin-bottom: 20px;
+}
+
+button.botonEliminar{
+	background-color: red !important;
+}
+button.botonEditar{
+	background-color: green !important;
+}
+button.botonEliminar, button.botonEditar{
+ margin: 1px;
 }

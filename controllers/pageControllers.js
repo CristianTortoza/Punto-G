@@ -7,7 +7,7 @@ const pageControllers = {
 
 	home: async (req,res) => {
 		const producto = await Producto.find()
-		res.render('index', {
+		return res.render('index', {
 			title: 'Welcome!',
 			producto,
 			loggedIn : req.session.loggedIn,
@@ -16,30 +16,53 @@ const pageControllers = {
 		})
 	},
 	crearCuenta:(req,res) => {
-		res.render('crearCuenta', {
-			title: 'Crear Cuenta',
-			loggedIn : req.session.loggedIn,
-			userId: req.session._id ,
-		})
+	
+		try {
+			if(req.session.loggedIn) throw new Error()
+			return	res.render('crearCuenta', {
+				title: 'Crear Cuenta',
+				loggedIn : req.session.loggedIn,
+				userId: req.session._id ,
+				error: null,
+			})
+		}catch(e){
+			console.log(e)
+			res.redirect("/")
+		}
 	},
 	ingresar:(req,res) => {
-		res.render('ingresar', {
-			title: 'Iniciar sesion',
-			error: null,	
-			loggedIn : req.session.loggedIn,
-			userId: req.session._id ,
-		})
+	
+		try{
+			if(req.session.loggedIn) throw new Error()
+			return	res.render('ingresar', {
+				title: 'Iniciar sesion',
+				error: null,	
+				loggedIn : req.session.loggedIn,
+				userId: req.session._id ,
+			})
+		}	
+		catch(e){
+			console.log(e)
+			res.redirect("/")
+		}
 	},
 	admin:(req,res) => {
-		res.render('admin', {
-			title: 'Cargar-Producto',
-			editando: false,
-			loggedIn : req.session.loggedIn,
-			userId: req.session._id ,
-		})
+		
+		try{	
+			if(!req.session.loggedIn) throw new Error()
+			return res.render('admin', {
+				title: 'Cargar-Producto',
+				editando: false,
+				loggedIn : req.session.loggedIn,
+				userId: req.session._id ,
+			})
+		}
+		catch(e){
+			console.log(e)
+			res.redirect("/")
+		}
 	},
 	crearProducto: async (req, res) => {
-		console.log(req.params._id)
 		const {titulo, precio, imagen, descripcion, _id} = req.body
 		let productoNuevo 
 		if(!_id){
@@ -63,6 +86,7 @@ const pageControllers = {
 			res.redirect("/")
 		}catch(e){
 			console.log(e)
+			res.redirect("/")
 		}
 	},
 
@@ -84,6 +108,14 @@ const pageControllers = {
 	cargarUsuario: async (req,res) => { 
 		const {nombre, email, contrasena} = req.body
 		let cryptPass = bcryptjs.hashSync(contrasena)
+		let usuario = await Usuario.findOne({email})
+		if(usuario){
+			return res.render('crearCuenta', {
+				title: 'Crear cuenta',
+				error: "El usuario ya existe",
+				loggedIn : false,
+			})
+		}
 		let nuevoUsuario = new Usuario({
 			nombre,
 			email,
@@ -98,21 +130,28 @@ const pageControllers = {
 	},
 
 	ingresarCuenta: async (req,res) => {
-		
-		const {email, contrasena} = req.body
-		let usuario = await Usuario.findOne({email})
-		let correctPass = bcryptjs.compareSync(contrasena, usuario.contrasena)
-		if(!usuario || !correctPass){
-			res.render('ingresar', {
-				title: 'Iniciar sesion',
-				error: "contrasena o mail incorrecto"
+		try{
+			const {email, contrasena} = req.body
+			let usuario = await Usuario.findOne({email})
+			let correctPass = bcryptjs.compareSync(contrasena, usuario.contrasena)
+			if(!usuario || !correctPass) throw new Error()
+			req.session.loggedIn = true
+			req.session._id = usuario._id
+			req.session.nombre = usuario.nombre
+			res.redirect("/")
+		}catch(e){
+			res.render('crearCuenta', {
+				title: 'Crear Cuenta',
+				error: "contraseña o mail incorrecto",
+				loggedIn : false,
 			})
 		}
-		req.session.loggedIn = true
-		req.session._id = usuario._id
-		req.session.nombre = usuario.nombre
-		return res.redirect("/")
+
 	},
+
+
+
+
 	desconectarUsuario: (req, res) => {
 		req.session.destroy(() =>{
 			res.redirect("/")

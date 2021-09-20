@@ -2,7 +2,11 @@
 <div class="contenedorPrincipalMain">
 	<div class="tituloLinkMain">
 		<h1>HACE QUE SUCEDA...</h1>
+		<% if (!loggedIn) { %>
 		<a href="/crearCuenta">Crear Cuenta</a>
+		<% } else { %>
+		<a href="/admin">Agregar Productos</a>
+		<% } %>
 	</div>
 	<div class="contenedorImagenesMain">
 		<img src="/assets/labio1.jpg" alt="">
@@ -21,14 +25,14 @@
 				<div class="tarjetaDeProductos">
 					<div style="background-image: url(<%=producto.imagen%>);" class="imagenProducto">
 					</div>
-					<p> <%= producto.precio  %>$</p> 
+					<p> $<%= producto.precio  %></p> 
 					<h3><%= producto.titulo  %></h3>
-					<button>Ver mas</button>
+					<!-- <button>Ver mas</button> -->
 					<%if(userId){%>
 						<% if(producto.userId.toString() === userId.toString() ){ %>
 							<div class="contenedorDeImagenesParaEdit">
-								<a href="/eliminar-producto/<%= producto._id%>"><img src="/assets/remove.png" alt=""></a>
-								<a href="/editar-producto/<%= producto._id%>"><img src="/assets/edit.png" alt=""></a>
+								<a href="/eliminar-producto/<%= producto._id%>"><button class="botonEliminar">Eliminar</button></a>
+								<a href="/editar-producto/<%= producto._id%>"><button class="botonEditar">Editar</button></a>
 							</div>	
 						<%}else{%>
 							<div class="contenedorDeImagenesParaEdit">
