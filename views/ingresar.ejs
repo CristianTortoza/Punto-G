@@ -1,0 +1,18 @@
+<%- include('partials/head.ejs') %>
+		<form action="/ingresar" method="POST">
+			<input type="text" placeholder="Email" name="email" required>
+			<input type="text" placeholder="contrasena" name="contrasena"required>
+			<div class="formularioCrearCuentaBoton">
+				<button type="submit">Ingresar</button>
+				<p>No tienes una cuenta ? <a href="/crearCuenta">Crear Cuenta</a></p>
+			</div>
+			<% if(error){%>
+				<h3 class="errorMensaje"><%= error %></h3>
+			<%}%>
+		</form>
+	</main>
+	<footer>
+		<h2>Copyright © 2021 | Punto G Sexshop | Creado por Tortoza Cristian</h2>
+	</footer>
+</body>
+</html>

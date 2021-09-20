@@ -2,6 +2,7 @@ html * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+	font-family: 'Montserrat', sans-serif;
 }
 
 header{
@@ -72,30 +73,33 @@ div.contenedorImagenesMain img{
 	margin-left: 5px;
 }
 div.contenedorProductos{
-	height: 70vh;
+	min-height: 70vh;
 	background-color: rgb(93, 8, 107);
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	flex-wrap: wrap;
+	flex-direction: row;
+	width: 100%;
 }
 div.contenedorTarjetasDeProductos{
 	background-color:rgb(158, 94, 208);
 	height: 80%;
-	width: 90%;
+	width: 35%;
 	display: flex;
 	justify-content: center;
-	border-top-left-radius: 15px;
-	border-top-right-radius: 15px;
+
+	/* overflow: auto; */
 }
 div.tarjetaDeProductos{
-	width: 25%;
-	height: 90%;
+	width: 50%;
 	background-color: violet;
 	display: flex;
 	justify-content: space-around;
 	flex-direction: column;
 	align-items: center;
 	margin: 6px;
+	
 }
 div.contenedorTarjetasDeProductos img{
 	height: 30vh;
@@ -174,4 +178,26 @@ div.formularioCrearCuentaBoton button{
 	border-radius: 5px;
 	border: none;
 	
+}
+div.contenedorDeImagenesParaEdit{
+	display: flex;
+	width: 100%;
+	align-items: flex-end;
+	position:relative;
+
+}
+
+div.contenedorDeImagenesParaEdit img{
+	height: 25px;
+}
+h2.ocultarHola{
+	opacity: 0;
+}
+
+div.imagenProducto{
+	height: 40vh;
+	min-width: 90%;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
 }

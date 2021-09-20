@@ -1,0 +1,60 @@
+<%- include('partials/head.ejs') %>
+<div class="contenedorPrincipalMain">
+	<div class="tituloLinkMain">
+		<h1>HACE QUE SUCEDA...</h1>
+		<a href="/crearCuenta">Crear Cuenta</a>
+	</div>
+	<div class="contenedorImagenesMain">
+		<img src="/assets/labio1.jpg" alt="">
+		<img src="/assets/labio2.jpg" alt="">
+		<img src="/assets/labio3.jpg" alt="">
+		<img src="/assets/labio4.jpg" alt="">
+		<img src="/assets/labio5.jpg" alt="">
+	</div>
+</div>
+<div class="contenedorProductos">
+	<% if (producto.lenght === 0){ %>
+		<h1>no hay productos</h1>
+	<% }else{ %>
+	<%	producto.forEach(producto => { %>
+			<div class="contenedorTarjetasDeProductos">
+				<div class="tarjetaDeProductos">
+					<div style="background-image: url(<%=producto.imagen%>);" class="imagenProducto">
+					</div>
+					<p> <%= producto.precio  %>$</p> 
+					<h3><%= producto.titulo  %></h3>
+					<button>Ver mas</button>
+					<%if(userId){%>
+						<% if(producto.userId.toString() === userId.toString() ){ %>
+							<div class="contenedorDeImagenesParaEdit">
+								<a href="/eliminar-producto/<%= producto._id%>"><img src="/assets/remove.png" alt=""></a>
+								<a href="/editar-producto/<%= producto._id%>"><img src="/assets/edit.png" alt=""></a>
+							</div>	
+						<%}else{%>
+							<div class="contenedorDeImagenesParaEdit">
+								<h2 class="ocultarHola">.g</h2>
+							</div>
+						<%}%>
+					<%} %>
+				</div>
+			</div>
+	<%	}) %>
+	<%	} %>
+</div>
+<div class="contenedorInformativo">
+	<div class="imagenAcc">
+		<img src="/assets/acc.png" alt="">
+	</div>
+	<div class="informacionMain">
+		<h2>LLevamos el Sex Shop a tu casa</h2>
+		<p>	
+			Se coordina una reunión entre amigas en donde nuestra consultora les muestra y las asesora sobre todos nuestros productos, brindándoles información muy completa sobre cada uno de ellos, como usarlos, para que sirven y en qué momentos y zonas son ideales, todo esto en un ambiente distendido y sobre todo muy divertido.
+		</p>
+	</div>
+</div>	
+</main>
+<footer>
+<h2>Copyright © 2021 | Punto G Sexshop | Creado por Tortoza Cristian</h2>
+</footer>
+</body>
+</html>
