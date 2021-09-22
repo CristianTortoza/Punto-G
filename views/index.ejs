@@ -1,33 +1,49 @@
 <%- include('partials/head.ejs') %>
-<div class="contenedorPrincipalMain">
-	<div class="tituloLinkMain">
-		<h1>HACE QUE SUCEDA...</h1>
-		<% if (!loggedIn) { %>
-		<a href="/crearCuenta">Crear Cuenta</a>
-		<% } else { %>
-		<a href="/admin">Agregar Productos</a>
-		<% } %>
-	</div>
-	<div class="contenedorImagenesMain">
-		<img src="/assets/labio1.jpg" alt="">
-		<img src="/assets/labio2.jpg" alt="">
-		<img src="/assets/labio3.jpg" alt="">
-		<img src="/assets/labio4.jpg" alt="">
-		<img src="/assets/labio5.jpg" alt="">
-	</div>
+<div class="contenedorPrincipalMain" style="background-image: url(/assets/fondo.png); background-position: center; background-size: cover; background-repeat: no-repeat;">	
+<div class="action">
+	<% if (!loggedIn) { %>
+		<div class="tituloLogear">
+			<h2>Te Ayudamos A Disfrutar </h2>
+			<h2><span>Más</span> De Tu Sexualidad</h2>
+		</div>
+	<a href="/crearCuenta"><button> Crear Cuenta</button></a>
+	<% } else { %>
+		<div>
+			<h2>Compartinos Tu</h2>
+			<h2><span>Juguete</span> Ideal</h2>
+		</div>
+	<a href="/admin"><button>Agregar Productos</button></a>
+	<% } %>
+</div>
 </div>
 <div class="contenedorProductos">
 	<% if (producto.lenght === 0){ %>
 		<h1>no hay productos</h1>
 	<% }else{ %>
 	<%	producto.forEach(producto => { %>
-			<div class="contenedorTarjetasDeProductos">
 				<div class="tarjetaDeProductos">
+					<div class="like">
+						<!-- <i class="far fa-heart"></i> -->
+						<i class="fas fa-heart segundoLike"></i>
+					</div>
 					<div style="background-image: url(<%=producto.imagen%>);" class="imagenProducto">
 					</div>
-					<p> $<%= producto.precio  %></p> 
-					<h3><%= producto.titulo  %></h3>
-					<!-- <button>Ver mas</button> -->
+					<div class="productoInformacion">
+						<div class="tituloYMarcaProducto">
+							<h3><%= producto.titulo  %></h3>
+							<p>Marca Producto</p>
+						</div>
+						<div class="precioDeProducto">	
+							<p> $<%= producto.precio  %></p> 
+						</div>	
+					</div>	
+					<div class="contenedorDeEstrellas">
+						<i class="fas fa-star segundaEstrella"></i>
+						<i class="fas fa-star"></i>
+						<i class="fas fa-star"></i>
+						<i class="fas fa-star"></i>
+						<i class="fas fa-star"></i>
+					</div>
 					<%if(userId){%>
 						<% if(producto.userId.toString() === userId.toString() ){ %>
 							<div class="contenedorDeImagenesParaEdit">
@@ -41,24 +57,21 @@
 						<%}%>
 					<%} %>
 				</div>
-			</div>
 	<%	}) %>
 	<%	} %>
 </div>
 <div class="contenedorInformativo">
-	<div class="imagenAcc">
-		<img src="/assets/acc.png" alt="">
-	</div>
 	<div class="informacionMain">
-		<h2>LLevamos el Sex Shop a tu casa</h2>
-		<p>	
-			Se coordina una reunión entre amigas en donde nuestra consultora les muestra y las asesora sobre todos nuestros productos, brindándoles información muy completa sobre cada uno de ellos, como usarlos, para que sirven y en qué momentos y zonas son ideales, todo esto en un ambiente distendido y sobre todo muy divertido.
-		</p>
+		<h2 class="letter">LLevamos</h2>
+		<h2>La <span>Diversión</span></h2>
+		<h2>A Tu Casa</h2>
 	</div>
+	<h2 class="footer">Copyright © 2021 | Punto G | Tortoza Cristian</h2>
 </div>	
 </main>
-<footer>
-<h2>Copyright © 2021 | Punto G Sexshop | Creado por Tortoza Cristian</h2>
-</footer>
 </body>
 </html>
+
+
+
+

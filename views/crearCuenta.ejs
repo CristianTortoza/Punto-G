@@ -1,19 +1,66 @@
 <%- include('partials/head.ejs') %>
-		<form action="/crearCuenta" method="POST">
-			<% if(error){%>
-				<h3 class="errorMensaje"><%=error%></h3>
-			<%}%>
-			<input type="text" placeholder="Nombre" name="nombre" required>
-			<input type="email" placeholder="Email" name="email" required>
-			<input type="password" placeholder="Contraseña" name="contrasena" required>
-			<div class="formularioCrearCuentaBoton">
-				<button >Crear Cuenta</button>
-				<p>Ya tienes una cuenta ? <a href="/ingresar">ingresar</a></p>
-			</div>
-		</form>
-	</main>
-	<footer>
-		<h2>Copyright © 2021 | Punto G Sexshop | Creado por Tortoza Cristian</h2>
-	</footer>
+<div class="CrearCuentaContainer">
+	<form action="/crearCuenta" method="POST">
+		<% if(error){%>
+			<h3 class="errorMensaje"><%=error%></h3>
+		<%}%>
+		<input type="text" placeholder="Nombre" name="nombre" required>
+		<input type="email" placeholder="Email" name="email" required>
+		<input type="password" placeholder="Contraseña" name="contrasena" required>
+		<div class="formularioCrearCuentaBoton">
+			<button >Crear Cuenta</button>
+			<p>Ya tienes una cuenta ? <a href="/ingresar">ingresar</a></p>
+		</div>
+	</form>
+</div>	
+</main>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+
+
+
+
+
+
+<%- include('partials/head.ejs') %>
+		<div class="CrearCuentaContainer">
+			<form action="/crearCuenta" method="POST">
+				<% if(error){%>
+					<h3 class="errorMensaje"><%=error%></h3>
+				<%}%>
+				<input type="text" placeholder="Nombre" name="nombre" required>
+				<input type="email" placeholder="Email" name="email" required>
+				<input type="password" placeholder="Contraseña" name="contrasena" required>
+				<div class="formularioCrearCuentaBoton">
+					<button >Crear Cuenta</button>
+					<p>Ya tienes una cuenta ? <a href="/ingresar">ingresar</a></p>
+				</div>
+			</form>
+		</div>	
+	</main>
+</body>
+</html> -->

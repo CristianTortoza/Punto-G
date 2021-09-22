@@ -2,87 +2,135 @@ html * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-	font-family: 'Montserrat', sans-serif;
+	font-family: 'Source Sans Pro', sans-serif;
 }
+
 button{
 	cursor: pointer;
 }
+
+body{
+	background-color: #fce5f4;;
+}
+
 header{
 	display: flex;
 	width: 100%;
-	height: 15vh;
+	height: 10vh;
 	justify-content: space-between;
-	background-color: rgb(93, 8, 107);
+	background-color: #fce5f4;
+	align-items: center;
 	padding: 10px;
+	box-shadow: -1px 23px 31px -9px rgba(0,0,0,0.09);
 }
+
 div.logoSexShop{
 	display: flex;
 	align-items: center;
-	margin-top: 15px;
+} 
+
+div.logo{
+	background-image: url(https://i.postimg.cc/7ZV8LzS9/logofinal.png);
+	height: 3rem;
+	width: 3rem;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: contain;
 }
-div.logoSexShop h2,div.contenedorLogoTitulo h4{
-	color: white;
+
+div.logoSexShop h2{
+	color: #874c73;
+	letter-spacing: 2px;
+	font-weight: 600;
 }
+div.action span, header nav a:active, header nav a:hover, div.informacionMain h2 span, div.logoSexShop span{
+	color: #df2399;
+}
+
 div.logoSexShop img{
 	margin-right: 15px;
 	margin-bottom: 5px;
 }
+
 div.contenedorLogoTitulo{
 	display: flex;
 	flex-direction: column;
 }
+
 header nav{
 	display: flex;
-	justify-content: center;
-	text-align: center;
+	justify-content: space-around;
 	align-items: center;
-	padding: 15px;
-	height: 100%;
+	width: 30%;
 }
+
 header nav a{
-	color: white;
+	color: #874c73;
+	font-weight: 600;
+	letter-spacing: 1px;
 	text-decoration: none;
-	margin: 5px;
 }
-header nav a:hover{
-	color: rgb(158, 94, 208);
-}
+
 main{
 	min-height: 75vh;
 }
+
 div.contenedorPrincipalMain{
-	height: 20vh;
-	background-color: rgb(158, 94, 208);
-	padding: 15px;
+	height: 90vh;
 	display: flex;
 	width: 100%;
-	justify-content: space-between;
+	justify-content: center;
+	align-items: center;
 }
-div.tituloLinkMain h1{
-	color: white;
-	margin-bottom: 15px;
+
+div.action{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
 }
-div.tituloLinkMain a, div.tarjetaDeProductos button, div.formularioCrearCuentaBoton button{
+
+div.action h2{
+	color: #874c73;
+	font-size: 4rem;
+	letter-spacing: -2px;
+}
+
+div.action button{
+	margin-top: 8px;
+	background-color: transparent;
+	border: 3px solid #874c73;
+	padding: 15px;
+	font-size: 1.5rem;
+	font-weight: bold;
+	color: #874c73;
+	letter-spacing: 2px;
+}
+
+div.tituloLinkMain a, div.tarjetaDeProductos button{
 	text-decoration: none;
 	color: white;
-	background-color: rgb(93, 8, 107);
 	padding: 8px;
 }
+
 div.tarjetaDeProductos button{
 	border: none;
 }
+
 div.contenedorImagenesMain{
 	display: flex;
 }
+
 div.contenedorImagenesMain img{
 	margin-top: 14px;
 	margin-left: 5px;
 	height: 100px;
 }
+
 div.contenedorProductos{
-	padding: 15px;
+	padding: 4rem;
 	min-height: 70vh;
-	background-color: rgb(93, 8, 107);
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -90,131 +138,104 @@ div.contenedorProductos{
 	flex-direction: row;
 	width: 100%;
 }
+
 div.contenedorTarjetasDeProductos{
-	background-color:rgb(158, 94, 208);
 	height: 80%;
-	width: 35%;
+	width: 45%;
 	display: flex;
 	justify-content: center;
-
-	/* overflow: auto; */
+	padding-top: 3em;
 }
+
 div.tarjetaDeProductos{
-	width: 50%;
-	background-color: violet;
+	width: 30%;
 	display: flex;
-	justify-content: space-around;
 	flex-direction: column;
 	align-items: center;
-	margin: 6px;
+	padding: 2em;
+	background-color: #fbe3f2;
+	border-radius: 1em;
+	margin: 1em;
+	box-shadow: -3px 10px 42px 9px rgba(0,0,0,0.15);	
+}
+
+div.productoInformacion{
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+}
+
+div.precioDeProducto{
+	background-color: #dfbdd2;
+	min-width: 4rem;
+	border-radius: 0.5em;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+div.precioDeProducto p{
+	font-weight: bold;
+	color: #81426b;
+}
+
+div.tituloYMarcaProducto{
+	color: #793962;
 	
 }
+
+div.tituloYMarcaProducto h3{
+	font-size: 1.6rem;
+	font-weight: bold;
+}
+
+div.tituloYMarcaProducto p{
+	font-size: 1.4rem;
+	letter-spacing: 2px;
+}
+
 div.contenedorTarjetasDeProductos img{
 	height: 30vh;
 }
-div.contenedorInformativo{
-	margin-top: 50px;
-	margin-bottom: 50px;
-	display: flex;
-	width: 100%;
-	justify-content: center;
-	align-items: center;
-	background-color: rgb(93, 8, 107);
-}
-div.imagenAcc, div.informacionMain{
+
+div.imagenAcc{
 	width: 40%;
 } 
+
 div.imagenAcc img{
 	height: 300px;
 }
-div.informacionMain{
-	display: flex;
-	justify-content: space-around;
-	flex-direction: column;
-	align-items: flex-start;
-	padding: 10px;
-	height: 100%;
-}
-div.informacionMain h2,div.informacionMain p{
-	margin-bottom: 15px;
-	color: white;	
-}
-div.informacionMain p{
-	font-size: 18px;
-}
-div.informacionMain button{
-	padding: 12px;
-}
+
 img.carritoImg{
 	height: 30px;
 	margin-left: 5px;
 }
+
 footer{
-	height: 10vh;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	background-color: violet;
 }
-form{
-	width: 100%;
-	height: 76vh;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	flex-direction: column;
-	background-color: violet;
-	border-bottom: 5px solid  rgb(93, 8, 107);
-}
-form input{
-	margin-bottom: 15px;
-	width: 30%;
-	height: 10%;
-	outline: none;
-	border: none;
-	border-radius: 5px;
-	font-size: 30px;
-}
+
 div.formularioCrearCuentaBoton{
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 }
-div.formularioCrearCuentaBoton button{
-	padding: 10px;
-	border-radius: 5px;
-	border: none;
-	cursor: pointer;
-	
-}
-div.contenedorDeImagenesParaEdit{
-	display: flex;
-	width: 100%;
-	height: 10vh;
-	align-items: center;
-	justify-content: center;
-	position:relative;
-	
-}
-div.contenedorDeImagenesParaEdit h2{
-	margin: 2.8px;
-}
 
-div.contenedorDeImagenesParaEdit img{
-	height: 25px;
-}
 h2.ocultarHola{
 	opacity: 0;
 }
 
 div.imagenProducto{
-	height: 40vh;
-	min-width: 90%;
+	height: 50vh;
+	width: 90%;
 	background-position: center;
 	background-repeat: no-repeat;
-	background-size: cover;
+	background-size: contain;
 }
+
 h3.errorMensaje{
 	color: white;
 	font-size: bold;
@@ -222,12 +243,237 @@ h3.errorMensaje{
 	margin-bottom: 20px;
 }
 
+.fa-star{
+	color: #e1c0d4;
+}
+
+div.contenedorDeEstrellas{
+	width: 90%;
+	align-self: flex-start;
+	padding: 1rem 0;
+}
+
+div.like{
+	width: 100%;
+	display: flex;
+	align-items: flex-start;
+}
+
+.fa-heart{
+	color: #e1c0d4;
+	font-size: 2.3rem;
+	cursor: pointer;
+}
+
+.segundoLike{
+	font-size: 2.3rem;
+	color: #df2399;
+	cursor: pointer;
+}
+
+.segundaEstrella{
+	color: #f9cd62;
+}
+
+div.contenedorDeImagenesParaEdit{
+	display: flex;
+	width: 90%;
+	height: 10vh;
+	align-items: center;
+	justify-content: space-around;
+	position:relative;
+	
+}
+
+div.contenedorDeImagenesParaEdit h2{
+	margin: 2.8px;
+}
+
+div.contenedorDeImagenesParaEdit img{
+	height: 25px;
+}
+
 button.botonEliminar{
-	background-color: red !important;
+	background-color: #df2399 !important;
 }
+
 button.botonEditar{
-	background-color: green !important;
+	background-color: #f082ac !important;
 }
+
 button.botonEliminar, button.botonEditar{
- margin: 1px;
+ border: none;
+ outline: none;
+ border-radius: 0.6em;
+ font-size: 1.1rem;
+ font-weight: bold;
+ letter-spacing: 1px;
+ color: whitesmoke;
+ width: 6.5rem;
+}
+
+div.contenedorInformativo{
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	background-image: url(https://i.postimg.cc/ncw2HcP5/fondo2.png);
+	background-position: top;
+	background-size: cover;
+	background-repeat: no-repeat;
+	height: 100vh;
+	width: 100%;
+}
+
+div.informacionMain{
+	display: flex;
+	flex-direction: column;
+	align-self: flex-end;
+	align-items: flex-start;
+	padding-top: 10rem;
+	padding-right: 5rem;
+}
+
+div.informacionMain h2{
+	font-size: 4rem;
+	text-align: justify;
+	font-family: 'Roboto', sans-serif;
+	color: #793962;
+	letter-spacing: -1.5px;
+}
+
+h2.footer{
+	padding-bottom: 1rem;
+	padding-left: 1rem;
+	font-size: 2rem;
+	font-weight: 600;
+	letter-spacing: 1px;
+	color: #793962;
+}
+
+div.ingresarCuentaContainer,  div.CrearCuentaContainer{
+	display: flex;
+	width: 100%;
+	height: 90vh;
+	justify-content: space-between;
+	padding: 3rem;
+	background-image: url(https://i.postimg.cc/RZjGrvPm/4453536.png);
+	background-position: top;
+	background-size: cover;
+	background-repeat:no-repeat;
+	align-self: flex-end;
+}
+
+form{
+	width: 40vw;
+	height: 70vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	box-shadow: -3px 10px 42px 9px rgba(0,0,0,0.15);
+	border-radius: 2em;
+}
+
+form input{
+	padding: 2rem;
+	margin-bottom: 15px;
+	width: 70%;
+	height: 7%;
+	outline: none;
+	border: none;
+	border-radius: 1rem;
+	font-size: 25px;
+	background-color: rgba(255, 255, 255, 0.623);
+
+}
+
+div.selectEstrellas{
+	display: flex;
+	width: 70%;
+	align-items: center;
+	justify-content: flex-start;
+
+}
+
+div.selectEstrellas select{
+	width: 6rem;
+	padding: 1rem;
+	margin-bottom: 15px;
+	outline: none;
+	border: none; 
+	border-radius: 1rem;
+	font-size: 25px;
+	background-color: rgba(255, 255, 255, 0.623);
+	color:#793962;
+	font-weight: 600;
+}
+
+div.selectEstrellas select option{
+	color:#793962;
+	font-weight: 600;
+
+}
+
+#estrellaSelect{
+	font-size: 2rem;
+	margin-bottom: 0.5em;
+	margin-left: 0.5em;
+}
+
+form input::placeholder{
+	color: #793962;
+	font-weight: 600;
+	letter-spacing: 3px;
+}
+
+div.formularioCrearCuentaBoton button, div.CrearCuentaContainer button{
+	border: none;
+	outline: none;
+	border-radius: 0.6em;
+	font-size: 1.3rem;
+	font-weight: bold;
+	letter-spacing: 1px;
+	padding: 0.2rem;
+	background-color:  #dfbdd2;
+	width: 10rem;	
+	height: 7vh;
+	color:#81426b;
+	margin-bottom: 15px;
+}
+
+div.formularioCrearCuentaBoton button{
+	width: 12rem;
+	height: 8vh;
+	font-size: 1.5rem;
+}
+
+form a{
+	color: #df2399;
+	text-decoration: none;
+}
+
+form a, form p{
+	font-weight: 600;
+}
+
+div.CrearCuentaContainer{
+	background-image: url(https://i.postimg.cc/2SnTcXsH/4453537.png);
+	background-position: left;
+	background-size: cover;
+	height: 90vh;
+	width: 100%;
+}
+
+div.CrearCuentaContainer{
+	justify-content: flex-end;
+}
+
+div.contenedorAdmin{
+	background-image: url(https://i.postimg.cc/7YL5gc3r/adminprueba3.png);
+	width: 100%;
+	height: 90vh;
+	background-position: top;
+	background-size: cover;
+	background-repeat: no-repeat;
+	padding: 3rem;
 }

@@ -1,24 +1,36 @@
 <%- include('partials/head.ejs') %>
+<div class="contenedorAdmin">
+	<form action="/productos/<%= userId %>" method="POST">
+		<input type="text" placeholder="Titulo" name="titulo" 
+		value="<%= editando ? editando.titulo :'' %>" required>
 
-<form action="/productos/<%= userId %>" method="POST">
-	<input type="text" placeholder="titulo" name="titulo" 
-	value="<%= editando ? editando.titulo :'' %>" required>
+		<input type="text" placeholder="Marca" name="marca" 
+		value="<%= editando ? editando.marca :'' %>" required>
 
-	<input type="number" placeholder="precio" name="precio" 
-	value="<%= editando ? editando.precio : '' %>" required>
+		<input type="number" placeholder="Precio" name="precio" 
+		value="<%= editando ? editando.precio : '' %>" required>
 
-	<input type="text" placeholder="Url imagen" name="imagen" 
-	value="<%= editando ? editando.imagen : '' %>" required>
-<!-- 
-	<input type="text" placeholder="Descripcion" name="descripcion" 
-	value="<%= editando ? editando.descripcion : '' %>" required>  -->
-	<input type="hidden" name="_id" value="<%= editando ? editando._id : '' %>">
-	<div class="formularioCrearCuentaBoton">
-		<button>send</button>
-	</div>
-</form>
+		<input type="text" placeholder="Url imagen" name="imagen" 
+		value="<%= editando ? editando.imagen : '' %>" required>
+		<div class="selectEstrellas">
+			<select name="entrellas" id="">
+				<option value="<%= editando ? editando.estrellas : 1 %>" class="optionClass">1</option>
+				<option value="<%= editando ? editando.estrellas : 2 %>" class="optionClass">2</option>
+				<option value="<%= editando ? editando.estrellas : 3 %>" class="optionClass">3</option>
+				<option value="<%= editando ? editando.estrellas : 4 %>" class="optionClass">4</option>
+				<option value="<%= editando ? editando.estrellas : 5 %>" class="optionClass">5</option>
+			</select>
+			<i class="fas fa-star segundaEstrella" id="estrellaSelect"></i>
+		</div>
+
+	<!-- 
+		<input type="text" placeholder="Descripcion" name="descripcion" 
+		value="<%= editando ? editando.descripcion : '' %>" required>  -->
+		<input type="hidden" name="_id" value="<%= editando ? editando._id : '' %>">
+		<div class="formularioCrearCuentaBoton">
+			<button>Cargar</button>
+		</div>
+	</form>
+</div>
 </main>
-<footer>
-	<h2>Copyright © 2021 | Punto G Sexshop | Creado por Tortoza Cristian</h2>
-</footer>
 </body>
