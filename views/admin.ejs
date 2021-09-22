@@ -13,7 +13,7 @@
 		<input type="text" placeholder="Url imagen" name="imagen" 
 		value="<%= editando ? editando.imagen : '' %>" required>
 		<div class="selectEstrellas">
-			<select name="entrellas" id="">
+			<select name="estrellas" id="">
 				<option value="<%= editando ? editando.estrellas : 1 %>" class="optionClass">1</option>
 				<option value="<%= editando ? editando.estrellas : 2 %>" class="optionClass">2</option>
 				<option value="<%= editando ? editando.estrellas : 3 %>" class="optionClass">3</option>
@@ -22,10 +22,6 @@
 			</select>
 			<i class="fas fa-star segundaEstrella" id="estrellaSelect"></i>
 		</div>
-
-	<!-- 
-		<input type="text" placeholder="Descripcion" name="descripcion" 
-		value="<%= editando ? editando.descripcion : '' %>" required>  -->
 		<input type="hidden" name="_id" value="<%= editando ? editando._id : '' %>">
 		<div class="formularioCrearCuentaBoton">
 			<button>Cargar</button>

@@ -63,14 +63,16 @@ const pageControllers = {
 		}
 	},
 	crearProducto: async (req, res) => {
-		const {titulo, precio, imagen, descripcion, _id} = req.body
+		const {titulo, precio, imagen,estrellas, marca, _id} = req.body
+		console.log(req.body.estrellas)
 		let productoNuevo 
 		if(!_id){
 			productoNuevo = await new Producto({
 				titulo,
+				marca,
 				precio,
 				imagen,
-				descripcion,
+				estrellas,
 				userId: req.params._id
 			})
 		}else{
@@ -78,7 +80,8 @@ const pageControllers = {
 			productoNuevo.titulo = titulo
 			productoNuevo.precio = precio
 			productoNuevo.imagen = imagen
-			productoNuevo.descripcion = descripcion	
+			productoNuevo.marca = marca
+			productoNuevo.estrellas = estrellas
 			productoNuevo.userId = req.params._id
 		}
 		try{
