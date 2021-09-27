@@ -5,16 +5,16 @@ const pageControllers = require("../controllers/pageControllers")
 router.route("/")
 .get(pageControllers.home)
 
-router.route("/productos/:_id")
+router.route("/productos/:id")
 .post(pageControllers.crearProducto)
 
 router.route("/admin")
 .get(pageControllers.admin)
 
-router.route("/eliminar-producto/:_id")
+router.route("/eliminar-producto/:id")
 .get(pageControllers.eliminarProducto)
 
-router.route("/editar-producto/:_id")
+router.route("/editar-producto/:id")
 .get(pageControllers.editarProducto)
 module.exports = router
 

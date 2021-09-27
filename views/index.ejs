@@ -44,18 +44,19 @@
 						<i class="fas fa-star"></i>
 						<i class="fas fa-star"></i>
 					</div>
-					<%if(userId){%>
-						<% if(producto.userId.toString() === userId.toString() ){ %>
+					<!-- %if(usuarioId){%> -->
+						<!-- % if(producto.usuarioId.toString() === usuarioId.toString() ){ %> -->
 							<div class="contenedorDeImagenesParaEdit">
-								<a href="/eliminar-producto/<%= producto._id%>"><button class="botonEliminar">Eliminar</button></a>
-								<a href="/editar-producto/<%= producto._id%>"><button class="botonEditar">Editar</button></a>
+								<a href="/eliminar-producto/<%= producto.id%>"><button class="botonEliminar">Eliminar</button></a>
+								<a href="/editar-producto/<%= producto.id%>"><button class="botonEditar">Editar</button></a>
 							</div>	
-						<%}else{%>
+						<!-- %}else{%> -->
+
 							<div class="contenedorDeImagenesParaEdit">
 								<h2 class="ocultarHola">.g</h2>
 							</div>
-						<%}%>
-					<%} %>
+						<!-- %}%> -->
+					<!-- %} %> -->
 				</div>
 	<%	}) %>
 	<%	} %>

@@ -1,28 +1,28 @@
 const path = require("path")
 const bcryptjs = require('bcryptjs')
 const Producto = require("../models/producto")
-const Usuario = require("../models/usuario")
+const Usuario = require("../models/Usuario")
 
 const pageControllers = {
 
 	home: async (req,res) => {
-		const producto = await Producto.find()
+		const producto = await Producto.findAll()
 		return res.render('index', {
 			title: 'Welcome!',
 			producto,
 			loggedIn : req.session.loggedIn,
-			userId: req.session._id,
+			usuarioId: req.session.usuarioId,
 			nombre: null || req.session.nombre
 		})
 	},
+
 	crearCuenta:(req,res) => {
-	
 		try {
 			if(req.session.loggedIn) throw new Error()
 			return	res.render('crearCuenta', {
 				title: 'Crear Cuenta',
 				loggedIn : req.session.loggedIn,
-				userId: req.session._id ,
+				usuarioId: req.session.usuarioId ,
 				error: null,
 			})
 		}catch(e){
@@ -30,15 +30,15 @@ const pageControllers = {
 			res.redirect("/")
 		}
 	},
+
 	ingresar:(req,res) => {
-	
 		try{
 			if(req.session.loggedIn) throw new Error()
 			return	res.render('ingresar', {
 				title: 'Iniciar sesion',
 				error: null,	
 				loggedIn : req.session.loggedIn,
-				userId: req.session._id ,
+				usuarioId: req.session.usuarioId ,
 			})
 		}	
 		catch(e){
@@ -46,15 +46,15 @@ const pageControllers = {
 			res.redirect("/")
 		}
 	},
-	admin:(req,res) => {
-		
+
+	admin:(req,res) => {	
 		try{	
 			if(!req.session.loggedIn) throw new Error()
 			return res.render('admin', {
 				title: 'Cargar-Producto',
 				editando: false,
 				loggedIn : req.session.loggedIn,
-				userId: req.session._id ,
+				usuarioId: req.session.usuarioId ,
 			})
 		}
 		catch(e){
@@ -62,56 +62,52 @@ const pageControllers = {
 			res.redirect("/")
 		}
 	},
+
 	crearProducto: async (req, res) => {
-		const {titulo, precio, imagen,estrellas, marca, _id} = req.body
-		console.log(req.body.estrellas)
-		let productoNuevo 
-		if(!_id){
-			productoNuevo = await new Producto({
+		const {titulo, precio, imagen, marca, id} = req.body
+		let productoNuevo;
+		if(!id){
+			productoNuevo = new Producto({
+				usuarioId: req.session.usuarioId,
 				titulo,
 				marca,
 				precio,
-				imagen,
-				estrellas,
-				userId: req.params._id
+				imagen,	
 			})
+			await productoNuevo.save()
+			res.redirect("/")
 		}else{
-			productoNuevo = await Producto.findOne({_id})
+			productoNuevo = await Producto.findOne({where:{id}})
 			productoNuevo.titulo = titulo
 			productoNuevo.precio = precio
 			productoNuevo.imagen = imagen
-			productoNuevo.marca = marca
-			productoNuevo.estrellas = estrellas
-			productoNuevo.userId = req.params._id
-		}
-		try{
+			productoNuevo.usuarioId = req.session.usuarioId
 			await productoNuevo.save()
 			res.redirect("/")
-		}catch(e){
-			console.log(e)
-			res.redirect("/")
 		}
+		
 	},
 
 	eliminarProducto: async (req, res) => {
-		await Producto.findByIdAndDelete({_id: req.params._id})
+		let productoAEliminar = await Producto.findByPk(req.params.id)
+		await productoAEliminar.destroy()
 		res.redirect("/")
 	},
 
 	editarProducto: async (req, res) => {
-		const producto = await Producto.findOne({_id: req.params._id})
+		const productoAeditar = await Producto.findByPk(req.params.id)
 		res.render('admin', {
 			title: 'Editar-Producto',
-			editando: producto,
+			editando: productoAeditar,
 			loggedIn : req.session.loggedIn,
-			userId: req.session._id ,
+			usuarioId: req.session.usuarioId ,
 		})
 	},
 
 	cargarUsuario: async (req,res) => { 
 		const {nombre, email, contrasena} = req.body
 		let cryptPass = bcryptjs.hashSync(contrasena)
-		let usuario = await Usuario.findOne({email})
+		let usuario = await Usuario.findOne({where:{email}})
 		if(usuario){
 			return res.render('crearCuenta', {
 				title: 'Crear cuenta',
@@ -135,11 +131,11 @@ const pageControllers = {
 	ingresarCuenta: async (req,res) => {
 		try{
 			const {email, contrasena} = req.body
-			let usuario = await Usuario.findOne({email})
+			let usuario = await Usuario.findOne({where:{email}})
 			let correctPass = bcryptjs.compareSync(contrasena, usuario.contrasena)
 			if(!usuario || !correctPass) throw new Error()
 			req.session.loggedIn = true
-			req.session._id = usuario._id
+			req.session.usuarioId = usuario.id
 			req.session.nombre = usuario.nombre
 			res.redirect("/")
 		}catch(e){
@@ -151,9 +147,6 @@ const pageControllers = {
 		}
 
 	},
-
-
-
 
 	desconectarUsuario: (req, res) => {
 		req.session.destroy(() =>{
