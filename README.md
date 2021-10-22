@@ -1,6 +1,6 @@
 # Punto-G Web App 🔥
 
-Una app desarrollada con EJS, es un sexshop donde lo usuarios se pueden crear una cuenta para subir articulos, estos articulos los puede editar y eliminar.(Hay algunas funcionalidades en desarrollo.)
+Una app desarrollada con EJS, es un sexshop donde lo usuarios se pueden crear una cuenta para subir artículos, estos artículos los puede editar y eliminar.(Hay algunas funcionalidades en desarrollo.)
 En este proyecto, se realizó otra rama llamada sequelize en la cual se reemplaza la base de datos utilizada por MySQL y se adecúa el código a la misma.
 Para poder ver el trabajo final realizado puedes ingresar a: [Punto-G](http://punto-g-app.herokuapp.com/)
 
